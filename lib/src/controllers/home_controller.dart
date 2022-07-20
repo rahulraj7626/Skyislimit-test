@@ -15,23 +15,33 @@ class GitController extends GetxController {
   }
 
   ///define variables
-  GitRepoModel? repoModelData;
+  List<GitRepoModel> repoModelData = [];
+  List<GitRepoModel> repoModelDataMain = [];
   RxBool isLoading = false.obs;
   SearchModel? searchModelData;
   RxString userId = "".obs;
   RxBool isSuccess = false.obs;
+  // @override
+  // void onInit() {
+  //   getRepoData();
+  //   super.onInit();
+  // }
 
   ///calling api service
   Future getRepoData() async {
-    if (await ConnectivityUtils.checkConnectivity()) {
+    if (await ConnectivityUtils.checkConnectivity(Routes.getHome())) {
+      repoModelDataMain.clear();
       showLoading();
-      repoModelData = await _homeService!.getGitHubData(userId.value);
+      update();
+      repoModelDataMain = await _homeService!.getGitHubData(userId.value);
+      repoModelData = repoModelDataMain;
       hideLoading();
+      update();
     }
   }
 
   Future searchGitUser(searchKey) async {
-    if (await ConnectivityUtils.checkConnectivity()) {
+    if (await ConnectivityUtils.checkConnectivity(Routes.getStart())) {
       showLoading();
       searchModelData = await _homeService!.searchUser(searchKey);
       hideLoading();
@@ -39,6 +49,26 @@ class GitController extends GetxController {
         userId.value = searchModelData!.login;
         Get.toNamed(Routes.getHome());
       }
+    }
+  }
+
+  search(searchKey) {
+    repoModelData = repoModelDataMain;
+
+    List<GitRepoModel> searchList = [];
+    if (repoModelData.isNotEmpty) {
+      showLoading();
+      for (int i = 0; i < repoModelData.length; i++) {
+        if (repoModelData[i]
+            .name
+            .toLowerCase()
+            .contains(searchKey.toString().toLowerCase())) {
+          searchList.add(repoModelData[i]);
+        }
+      }
+      hideLoading();
+      repoModelData = searchList;
+      update();
     }
   }
 

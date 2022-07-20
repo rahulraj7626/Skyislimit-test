@@ -10,14 +10,11 @@ class ResponseException {
       case 200:
         var responseJson = json.decode(response.body);
         return responseJson;
-      case 400:
-        var responseJson = json.decode(response.body);
-        return responseJson;
+
       case 404:
-        return ErrorPopus().errorAlert("Error", "Something eror");
+        return ErrorPopus().errorAlert("User not found", "Invalid username");
       default:
-        var responseJson = json.decode(response.body);
-        return responseJson;
+        return ErrorPopus().errorAlert("Error", "Something went wrong");
     }
   }
 }

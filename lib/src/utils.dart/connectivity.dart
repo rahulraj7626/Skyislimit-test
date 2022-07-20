@@ -4,7 +4,7 @@ import '../common_widgets/show_error.dart';
 
 ///checkinhg internet connection
 class ConnectivityUtils {
-  static Future<bool> checkConnectivity() async {
+  static Future<bool> checkConnectivity(String route) async {
     bool isConnected = false;
     var connectivityResult = await (Connectivity().checkConnectivity());
     if (connectivityResult == ConnectivityResult.mobile ||
@@ -12,8 +12,8 @@ class ConnectivityUtils {
       isConnected = true;
     } else {
       /// else calling error page
-      ErrorPopus()
-          .internetError("Connection Error", "Please connect to internet");
+      ErrorPopus().internetError(
+          "Connection Error", "Please connect to internet", route);
     }
     return isConnected;
   }

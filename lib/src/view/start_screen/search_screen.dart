@@ -22,27 +22,33 @@ class _SearchScreenState extends State<SearchScreen> {
         alignment: Alignment.center,
         margin: const EdgeInsets.all(12),
         padding: const EdgeInsets.all(12),
-        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          const Spacer(),
-          Image.asset("assets/images/git.png"),
-          const SizedBox(
-            height: 40,
-          ),
-          TextFieldWidget(
-            hint: "GitHub username",
-            controller: uName,
-            errMsg: "Required*",
-          ),
-          IconButton(
-              onPressed: () {
-                gitController.searchGitUser(uName.text);
-              },
-              icon: const Icon(
-                Icons.arrow_circle_right,
-                size: 40,
-              )),
-          const Spacer(),
-        ]),
+        child: Obx(
+          () => gitController.isLoading == true
+              ? Center(
+                  child: CircularProgressIndicator(),
+                )
+              : Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+                  const Spacer(),
+                  Image.asset("assets/images/git.png"),
+                  const SizedBox(
+                    height: 40,
+                  ),
+                  TextFieldWidget(
+                    hint: "GitHub username",
+                    controller: uName,
+                    errMsg: "Required*",
+                  ),
+                  IconButton(
+                      onPressed: () {
+                        gitController.searchGitUser(uName.text);
+                      },
+                      icon: const Icon(
+                        Icons.arrow_circle_right,
+                        size: 40,
+                      )),
+                  const Spacer(),
+                ]),
+        ),
       ),
     );
   }

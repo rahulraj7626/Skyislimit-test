@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../controllers/home_controller.dart';
 import '../route_manager/route.dart';
 import '../utils.dart/connectivity.dart';
 import 'button_widget.dart';
@@ -8,6 +9,7 @@ import 'text_widget.dart';
 
 //Error popup
 class ErrorPopus {
+  final gitController = Get.find<GitController>();
   errorAlert(title, text) {
     return Get.defaultDialog(
         title: "",
@@ -27,8 +29,9 @@ class ErrorPopus {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: ButtonWidget(
-                  buttonName: "Okey",
+                  buttonName: "Ok",
                   onpressed: () {
+                    gitController.hideLoading();
                     Get.back();
                   },
                 ),
@@ -41,7 +44,7 @@ class ErrorPopus {
   }
 
   ///internet error popus
-  internetError(title, text) {
+  internetError(title, text, route) {
     return Get.defaultDialog(
         title: "",
         titlePadding: const EdgeInsets.all(0),
@@ -64,8 +67,8 @@ class ErrorPopus {
                   onpressed: () async {
                     ///checkConnectivity before back
                     Get.back();
-                    if (await ConnectivityUtils.checkConnectivity()) {
-                      Get.offAllNamed(Routes.getHome());
+                    if (await ConnectivityUtils.checkConnectivity(route)) {
+                      Get.offAllNamed(route);
                     }
                   },
                 ),

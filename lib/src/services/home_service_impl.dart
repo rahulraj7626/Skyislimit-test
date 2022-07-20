@@ -15,9 +15,18 @@ class HomeserviceImpl implements HomeService {
 
   ///Homedata service
   @override
-  Future<GitRepoModel> getGitHubData(uid) async {
-    return GitRepoModel.fromJson(await _httpService
-        .get(ApiConstants.repApi1 + uid + ApiConstants.repApi2));
+  Future<List<GitRepoModel>> getGitHubData(uid) async {
+    final data = await _httpService
+        .get(ApiConstants.repApi1 + uid + ApiConstants.repApi2);
+
+    List<GitRepoModel> repoList = [];
+    data.map((element) {
+      repoList.add(GitRepoModel.fromJson(element));
+    }).toList();
+
+    print(repoList);
+
+    return repoList;
   }
 
   ///post api that add shedule

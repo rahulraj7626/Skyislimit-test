@@ -80,7 +80,6 @@ class GitRepoModel {
     required this.archived,
     required this.disabled,
     required this.openIssuesCount,
-    required this.license,
     required this.allowForking,
     required this.isTemplate,
     required this.webCommitSignoffRequired,
@@ -160,7 +159,7 @@ class GitRepoModel {
   bool archived;
   bool disabled;
   int openIssuesCount;
-  String license;
+
   bool allowForking;
   bool isTemplate;
   bool webCommitSignoffRequired;
@@ -240,7 +239,6 @@ class GitRepoModel {
         archived: json["archived"],
         disabled: json["disabled"],
         openIssuesCount: json["open_issues_count"],
-        license: json["license"] ?? "",
         allowForking: json["allow_forking"],
         isTemplate: json["is_template"],
         webCommitSignoffRequired: json["web_commit_signoff_required"],
@@ -321,7 +319,6 @@ class GitRepoModel {
         "archived": archived,
         "disabled": disabled,
         "open_issues_count": openIssuesCount,
-        "license": license,
         "allow_forking": allowForking,
         "is_template": isTemplate,
         "web_commit_signoff_required": webCommitSignoffRequired,
