@@ -1,6 +1,6 @@
 # skyslimit_test
 Machine test of skyslimit, Apk, screenshot , screen record uploaded
-- [Click here]([https://docs.flutter.dev/get-started/codelab](https://github.com/rahulraj7626/Skyislimit-test/tree/master/screenshots_and_outputs))
+- [outputs: Click here](https://github.com/rahulraj7626/Skyislimit-test/tree/master/screenshots_and_outputs))
 
 ## Getting Started
 
