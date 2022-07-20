@@ -12,6 +12,10 @@ Language : Dart
 
 State management : GetX
 
+## Done
+
+-Search user if exist
+
 Packages used:   get: ^4.6.5 ,
   connectivity_plus: ^2.3.6 , 
   http: ^0.13.4 , 
