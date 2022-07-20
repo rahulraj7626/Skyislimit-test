@@ -13,7 +13,7 @@ class HomeserviceImpl implements HomeService {
     _httpService = Get.put(HttpServiceRequests());
   }
 
-  ///Homedata service
+  ///get repo list api
   @override
   Future<List<GitRepoModel>> getGitHubData(uid) async {
     final data = await _httpService
@@ -24,12 +24,10 @@ class HomeserviceImpl implements HomeService {
       repoList.add(GitRepoModel.fromJson(element));
     }).toList();
 
-    print(repoList);
-
     return repoList;
   }
 
-  ///post api that add shedule
+  ///post api that search username
   @override
   Future<SearchModel> searchUser(uid) async {
     return SearchModel.fromJson(

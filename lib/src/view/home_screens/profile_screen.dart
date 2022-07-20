@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import '../../common_widgets/text_widget.dart';
 import '../../controllers/home_controller.dart';
 
+///Profile screen
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({Key? key}) : super(key: key);
 
@@ -48,6 +49,7 @@ Widget textItem(txt, fSize) {
   );
 }
 
+///cached image widget
 CachedNetworkImage imageWidget(url, size) {
   return CachedNetworkImage(
     fit: BoxFit.cover,

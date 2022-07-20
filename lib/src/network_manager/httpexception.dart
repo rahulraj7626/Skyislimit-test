@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 
 import '../common_widgets/show_error.dart';
 
-///handlibg api eceptions
+///handlibg api exceptions
 class ResponseException {
   Future<dynamic> responseException(http.Response response) async {
     switch (response.statusCode) {

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../controllers/home_controller.dart';
-import '../route_manager/route.dart';
 import '../utils.dart/connectivity.dart';
 import 'button_widget.dart';
 import 'text_widget.dart';

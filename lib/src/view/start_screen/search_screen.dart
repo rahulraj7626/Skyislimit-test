@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import '../../common_widgets/text_form_fiels.dart';
 import '../../controllers/home_controller.dart';
 
+/// starting screen widget
 class SearchScreen extends StatefulWidget {
   const SearchScreen({Key? key}) : super(key: key);
 
@@ -23,8 +24,8 @@ class _SearchScreenState extends State<SearchScreen> {
         margin: const EdgeInsets.all(12),
         padding: const EdgeInsets.all(12),
         child: Obx(
-          () => gitController.isLoading == true
-              ? Center(
+          () => gitController.isLoading.value == true
+              ? const Center(
                   child: CircularProgressIndicator(),
                 )
               : Column(mainAxisAlignment: MainAxisAlignment.center, children: [

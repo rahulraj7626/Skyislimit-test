@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import '../controllers/home_controller.dart';
 
+///Search widget
 class SearchWidget extends StatelessWidget {
   final String hint;
 
@@ -18,6 +19,8 @@ class SearchWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 10),
       child: TextField(
         textInputAction: TextInputAction.search,
+
+        ///Calling search method from controller
         onSubmitted: (value) {
           gitController.search(value);
         },

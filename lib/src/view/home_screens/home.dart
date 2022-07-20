@@ -6,6 +6,7 @@ import 'package:skyslimit_test/src/view/home_screens/repository.dart';
 
 import '../../common_widgets/text_widget.dart';
 
+///Tab widget
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 

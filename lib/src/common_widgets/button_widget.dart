@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// Costum button
+/// Costum button widget
 class ButtonWidget extends StatelessWidget {
   final String buttonName;
 

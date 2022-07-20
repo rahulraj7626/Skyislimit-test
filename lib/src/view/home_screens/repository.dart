@@ -5,6 +5,7 @@ import '../../common_widgets/text_widget.dart';
 import '../../models/repo_model.dart';
 import '../../utils.dart/url_utils.dart';
 
+/// repository widget
 class RepoScreen extends StatelessWidget {
   final List<GitRepoModel> repoList;
   const RepoScreen({Key? key, required this.repoList}) : super(key: key);
@@ -40,6 +41,7 @@ class RepoScreen extends StatelessWidget {
   }
 }
 
+///Card widget
 Widget cardItem(txt, priv, lang, link) {
   return GestureDetector(
     onTap: () {

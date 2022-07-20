@@ -21,13 +21,9 @@ class GitController extends GetxController {
   SearchModel? searchModelData;
   RxString userId = "".obs;
   RxBool isSuccess = false.obs;
-  // @override
-  // void onInit() {
-  //   getRepoData();
-  //   super.onInit();
-  // }
 
   ///calling api service
+  ///Get repository list
   Future getRepoData() async {
     if (await ConnectivityUtils.checkConnectivity(Routes.getHome())) {
       repoModelDataMain.clear();
@@ -40,6 +36,7 @@ class GitController extends GetxController {
     }
   }
 
+  ///Search git user
   Future searchGitUser(searchKey) async {
     if (await ConnectivityUtils.checkConnectivity(Routes.getStart())) {
       showLoading();
@@ -52,6 +49,7 @@ class GitController extends GetxController {
     }
   }
 
+  ///Filter funtion with name
   search(searchKey) {
     repoModelData = repoModelDataMain;
 
