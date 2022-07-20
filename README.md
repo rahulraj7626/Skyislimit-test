@@ -6,8 +6,15 @@ A new Flutter project.
 
 Technology : Flutter
 
-
 Language : Dart
+
+State management : GetX
+
+Packages used:   get: ^4.6.5 ,
+  connectivity_plus: ^2.3.6 , 
+  http: ^0.13.4 , 
+  cached_network_image: ^3.2.1 , 
+  url_launcher: ^6.1.5 .
 
 
 A few resources to get you started if this is your first Flutter project:
