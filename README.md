@@ -14,7 +14,15 @@ State management : GetX
 
 ## Done
 
--Search user if exist
+- Search gitHub user
+- popup if username doesnt exist
+- Two tabs profile and repository
+- Profile view screen
+- Repository listing 
+- Repository search using repo name
+- check internet connectivity
+- retry 
+- open repo in external browser
 
 Packages used:   get: ^4.6.5 ,
   connectivity_plus: ^2.3.6 , 
